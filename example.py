@@ -1,16 +1,6 @@
-import cProfile
 import time
 
-
-def profile(func):
-    def _inner():
-        pr = cProfile.Profile()
-        pr.enable()
-        func()
-        pr.disable()
-        stats_file = 'stats'
-        pr.dump_stats(stats_file)
-    return _inner
+from profiler import profile
 
 
 def a_function():
