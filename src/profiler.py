@@ -1,12 +1,14 @@
 import cProfile
 
 
-def profile(func):
-    def _inner(*args, **kwargs):
+class profile(object):
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self, *args, **kwargs):
         pr = cProfile.Profile()
         pr.enable()
-        func(*args, **kwargs)
+        self.func(*args, **kwargs)
         pr.disable()
         stats_file = 'stats'
         pr.dump_stats(stats_file)
-    return _inner
