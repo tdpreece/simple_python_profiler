@@ -9,7 +9,7 @@ from profiler import profile
 
 class TestProfileDecorator(TestCase):
     def setUp(self):
-        self.profiled_function = MagicMock()
+        self.profiled_function = MagicMock(return_value=sentinel.return_value)
 
     def test_profiled_function_with_no_args_is_executed(self):
         profile_decorator = profile
@@ -34,9 +34,12 @@ class TestProfileDecorator(TestCase):
         decorated_function(**kwargs)
         self.profiled_function.assert_called_once_with(**kwargs)
 
-    @expectedFailure
     def test_returns_returned_variables_of_profiled_function(self):
-        raise NotImplementedError()
+        profile_decorator = profile
+        decorated_function = profile_decorator(self.profiled_function)
+        return_value = decorated_function()
+        expected_return_value = self.profiled_function()
+        self.assertEqual(return_value, expected_return_value)
 
     @expectedFailure
     def test_stats_file_is_printed(self):
