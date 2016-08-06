@@ -17,5 +17,13 @@ class TestProfileDecorator(TestCase):
         profile(profiled_function)(*args)
         profiled_function.assert_called_once_with(*args)
 
-    # def test_profiled_function_with_kwargs_is_executed(self):
+    def test_profiled_function_with_kwargs_is_executed(self):
+        profiled_function = MagicMock()
+        kwargs = {
+            'key1': sentinel.value1,
+            'key2': sentinel.value2
+        }
+        profile(profiled_function)(**kwargs)
+        profiled_function.assert_called_once_with(**kwargs)
+
     # def test_stats_file_is_printed(self):
