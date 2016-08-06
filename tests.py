@@ -40,7 +40,7 @@ class TestProfileDecorator(TestCase):
         expected_return_value = self.profiled_function()
         self.assertEqual(return_value, expected_return_value)
 
-    def test_stats_file_is_printed(self):
+    def test_one_stats_files_are_saved_for_one_calls_of_function(self):
         stats_files_before = os.listdir(self.dir_path)
         self.assertEqual(len(stats_files_before), 0)
 
@@ -48,3 +48,13 @@ class TestProfileDecorator(TestCase):
 
         stats_files_after = os.listdir(self.dir_path)
         self.assertEqual(len(stats_files_after), 1)
+
+    def test_two_stats_files_are_saved_for_two_calls_of_function(self):
+        stats_files_before = os.listdir(self.dir_path)
+        self.assertEqual(len(stats_files_before), 0)
+
+        self.decorated_function()
+        self.decorated_function()
+
+        stats_files_after = os.listdir(self.dir_path)
+        self.assertEqual(len(stats_files_after), 2)

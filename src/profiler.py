@@ -1,4 +1,5 @@
 import os
+import tempfile
 import cProfile
 
 
@@ -12,7 +13,8 @@ class profile(object):
             pr.enable()
             return_value = func(*args, **kwargs)
             pr.disable()
-            stats_file = os.path.join(self.output_dir, 'stats')
-            pr.dump_stats(stats_file)
+            fd, stats_filename = tempfile.mkstemp(dir=self.output_dir)
+            os.close(fd)
+            pr.dump_stats(stats_filename)
             return return_value
         return _inner
