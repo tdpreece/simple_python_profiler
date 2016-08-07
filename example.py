@@ -1,6 +1,6 @@
 import time
 
-from profiler import profile
+from simple_profiler import profile
 
 
 def a_function():

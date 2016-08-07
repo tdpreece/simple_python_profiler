@@ -5,7 +5,7 @@ from unittest import TestCase
 
 from mock import MagicMock, sentinel
 
-from profiler import profile
+from simple_profiler import profile
 
 
 class TestProfileDecorator(TestCase):

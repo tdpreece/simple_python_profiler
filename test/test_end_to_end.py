@@ -6,7 +6,7 @@ from unittest import TestCase
 
 from mock import sentinel
 
-from profiler import profile
+from simple_profiler import profile
 
 
 this_dir = os.path.dirname(os.path.realpath(__file__))
