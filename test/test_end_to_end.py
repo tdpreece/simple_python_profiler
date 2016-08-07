@@ -23,7 +23,7 @@ class TestEndToEnd(TestCase):
         os.mkdir(self.dir_path)
         self.addCleanup(lambda: shutil.rmtree(self.dir_path))
 
-    def test(self):
+    def test_prints_stats_after_profiling_a_function(self):
         ret_val = function1()
         function1()
         process = subprocess.Popen(
