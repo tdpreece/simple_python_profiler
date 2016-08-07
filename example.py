@@ -11,7 +11,7 @@ def another_function():
     time.sleep(0.1)
 
 
-@profile
+@profile('/home/tdpreece/github/python_profiling/test/fixtures/')
 def an_example():
     for i in range(3):
         a_function()
