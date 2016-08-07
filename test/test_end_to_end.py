@@ -27,7 +27,7 @@ class TestEndToEnd(TestCase):
         ret_val = function1()
         function1()
         process = subprocess.Popen(
-            ['print_stats', self.dir_path],
+            ['print_profile_stats', self.dir_path],
             stdout=subprocess.PIPE
         )
         stdout = process.communicate()[0]

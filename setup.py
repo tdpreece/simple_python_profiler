@@ -10,5 +10,5 @@ setup(
     url='xxx',
     package_dir={'': 'src'},
     py_modules=['simple_profiler'],
-    scripts=['scripts/print_stats']
+    scripts=['scripts/print_profile_stats']
 )
