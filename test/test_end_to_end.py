@@ -26,20 +26,39 @@ class TestEndToEnd(TestCase):
     def test_prints_stats_after_profiling_a_function(self):
         ret_val = function1()
         function1()
-        process = subprocess.Popen(
-            ['print_profile_stats', self.dir_path],
-            stdout=subprocess.PIPE
-        )
-        stdout = process.communicate()[0]
+        stdout = self.print_profile_stats(self.dir_path)
+
         self.assertEqual(
             ret_val,
             sentinel.ret_val,
             msg='profile decorator not returning return value of function being profiled'
         )
-        stdout_lines = stdout.split('\n')
-        function1_stats = [line.strip() for line in stdout_lines if 'function1' in line][0]
-        n_calls_function1 = [stat.strip() for stat in function1_stats.split('    ')][0]
-        self.assertEqual(n_calls_function1, '2')
+        stats_output = StatsOutput(stdout)
+        self.assertEqual(
+            stats_output.get_n_calls('function1'),
+            '2'
+        )
+
+    def print_profile_stats(self, dir_path):
+        process = subprocess.Popen(
+            ['print_profile_stats', dir_path],
+            stdout=subprocess.PIPE
+        )
+        stdout = process.communicate()[0]
+        return stdout
+
+
+class StatsOutput(object):
+    def __init__(self, stdout):
+        self.stdout_lines = stdout.split('\n')
+
+    def get_n_calls(self, function_name):
+        function_stats = self.get_stats(function_name)
+        n_calls_function1 = [stat.strip() for stat in function_stats.split('    ')][0]
+        return n_calls_function1
+
+    def get_stats(self, function_name):
+        return [line.strip() for line in self.stdout_lines if function_name in line][0]
 
 
 @profile(profile_results_dir)
