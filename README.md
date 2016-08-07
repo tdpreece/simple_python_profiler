@@ -27,5 +27,9 @@ print_profile_stats /data/tmp/my_profiling_results
 ```
 
 ## To do
+* Usability of print_profile_stats_script
+** Hangle case when only one stats files in dir.
+** Nice message if no stats files in dir.
+** help message
 * Creating a file every time that the function is called is inefficient.
 * What would happen to profiled functions being called recursively?
