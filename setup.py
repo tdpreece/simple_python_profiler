@@ -7,7 +7,7 @@ setup(
     description='Simple Python profiler',
     author='Tim Preece',
     author_email='tdpreece@gmail.com',
-    url='xxx',
+    url='https://github.com/tdpreece/simple_python_profiler',
     package_dir={'': 'src'},
     py_modules=['simple_profiler'],
     scripts=['scripts/print_profile_stats']
