@@ -58,3 +58,6 @@ class TestProfileDecorator(TestCase):
 
         stats_files_after = os.listdir(self.dir_path)
         self.assertEqual(len(stats_files_after), 2)
+
+    def test_failing_test_in_Ci_will_remove_later(self):
+        raise AssertionError
