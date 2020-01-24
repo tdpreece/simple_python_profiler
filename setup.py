@@ -3,7 +3,7 @@ from distutils.core import setup
 
 setup(
     name='simple_profiler',
-    version='0.0.2',
+    version='0.0.3',
     description='Simple Python profiler',
     author='Tim Preece',
     author_email='tdpreece@gmail.com',
