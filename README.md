@@ -4,17 +4,21 @@ Work in progress
 Uses Python's [cProfile](https://docs.python.org/2/library/profile.html).
 
 ## Usage
-Download zip of this project this install with pip, 
+Download zip of this project this install with pip,
 `pip install this_project.zip`.
 
 Decorate the function to be profiled and supply a directory of the
 output of the profiler to be saved to.
 
+```bash
+mkdir my_profiling_results
+```
+
 ```python
-from simpler_profiler import profile
+from simple_profiler import profile
 
 
-@profile('/data/tmp/my_profiling_results')
+@profile('my_profiling_results')
 def function_being_profiled(x, y):
     return x + y 
 
