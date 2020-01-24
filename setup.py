@@ -1,7 +1,7 @@
-from distutils.core import setup
+import setuptools
 
 
-setup(
+setuptools.setup(
     name='simple_profiler',
     version='0.0.3',
     description='Simple Python profiler',
