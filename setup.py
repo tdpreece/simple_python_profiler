@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name='simple_profiler',
-    version='0.0.3',
+    version='0.0.4',
     description='Simple Python profiler',
     author='Tim Preece',
     author_email='tdpreece@gmail.com',
