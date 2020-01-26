@@ -2,8 +2,7 @@ import os
 import tempfile
 import shutil
 from unittest import TestCase
-
-from mock import MagicMock, sentinel
+from unittest.mock import MagicMock, sentinel
 
 from simple_profiler import profile
 

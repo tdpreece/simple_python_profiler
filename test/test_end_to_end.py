@@ -1,10 +1,8 @@
 import os
 import shutil
 import subprocess
-import tempfile
 from unittest import TestCase
-
-from mock import sentinel
+from unittest.mock import sentinel
 
 from simple_profiler import profile
 
@@ -50,7 +48,7 @@ class TestEndToEnd(TestCase):
 
 class StatsOutput(object):
     def __init__(self, stdout):
-        self.stdout_lines = stdout.split('\n')
+        self.stdout_lines = stdout.decode('utf-8').splitlines()
 
     def get_n_calls(self, function_name):
         function_stats = self.get_stats(function_name)

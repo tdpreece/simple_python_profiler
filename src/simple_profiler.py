@@ -2,7 +2,7 @@ import os
 import pstats
 import tempfile
 import cProfile
-from cStringIO import StringIO
+from io import StringIO
 
 
 class profile(object):
