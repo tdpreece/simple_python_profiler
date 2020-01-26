@@ -1,8 +1,10 @@
-build
-dist
-.idea
 *.egg-info
 *.pyc
 *.swp
-MANIFEST
+.idea
 .tox
+AUTHORS
+ChangeLog
+MANIFEST
+build
+dist

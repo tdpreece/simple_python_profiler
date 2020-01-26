@@ -1,5 +1,6 @@
 import os
 import pstats
+import sys
 import tempfile
 import cProfile
 from io import StringIO
@@ -22,7 +23,8 @@ class profile(object):
         return _inner
 
 
-def print_stats(commandline_args):
+def print_stats():
+    commandline_args = sys.argv
     stats_dir = commandline_args[1]
     stats_filenames = os.listdir(stats_dir)
     stats_filename = stats_filenames[0]

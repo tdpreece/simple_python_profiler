@@ -1,8 +1,0 @@
-#!python
-import sys
-
-import simple_profiler
-
-
-if __name__ == '__main__':
-    simple_profiler.print_stats(sys.argv)
