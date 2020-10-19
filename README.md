@@ -31,6 +31,7 @@ print_profile_stats /data/tmp/my_profiling_results
 ```
 
 ## To do
+* rename
 * Usability of print_profile_stats_script
 * Handle case when only one stats files in dir.
 * Nice message if no stats files in dir.
